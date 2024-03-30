@@ -1,6 +1,8 @@
 // DataEntryForm.jsx
 
 import React, { useState } from 'react';
+import axios from 'axios';
+
 
 function DataEntryForm({ onFormSubmit }) {
   const [formData, setFormData] = useState({
@@ -15,13 +17,23 @@ function DataEntryForm({ onFormSubmit }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   onFormSubmit(formData);
+  // };
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    onFormSubmit(formData);
+    try {
+      const response = await axios.post('/api/run', formData);
+      onFormSubmit(response.data);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <h2>Enter Data</h2>
       <div>
         <label>

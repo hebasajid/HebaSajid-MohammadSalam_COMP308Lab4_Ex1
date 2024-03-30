@@ -65,6 +65,8 @@ exports.trainAndPredict = function (req, res) {
     console.log(model.summary())
     //
     //Train the model and predict the results for testing data
+
+   
     //
     // train/fit the model for the fixed number of epochs
     async function run() {

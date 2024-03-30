@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import './App.css';
-import DataEntryForm from './components/UserData';
+import DataEntryForm from './components/DataEntryForm';
 
 function App() {
   const [data, setData] = useState({});
   const [showLoading, setShowLoading] = useState(true);
+
+  const [predictionResults, setPredictionResults] = useState(null);
+
   const apiUrl = "api/run";
 
   useEffect(() => {
@@ -24,18 +27,26 @@ function App() {
     fetchData();
   }, []);
 
-  const handleSubmit = async (formData) => {
+  // const handleSubmit = async (formData) => {
+  //   try {
+  //     setShowLoading(true);
+  //     const result = await axios.post('/api/run', { params: formData });
+  //     setData(result.data);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   } finally {
+  //     setShowLoading(false);
+  //   }
+  // };
+
+  const handleFormSubmit = async (formData) => {
     try {
-      setShowLoading(true);
-      const result = await axios.post('/api/run', { params: formData });
-      setData(result.data);
+      const response = await axios.post('/api/run', formData);
+      setPredictionResults(response.data);
     } catch (error) {
       console.error('Error:', error);
-    } finally {
-      setShowLoading(false);
     }
   };
-
 
   // Function to determine species based on values
   const determineSpecies = (values) => {
@@ -55,7 +66,7 @@ function App() {
     <div>
       {showLoading === false ? (
         <div>
-           <DataEntryForm onSubmit={handleSubmit} />
+           <DataEntryForm onFormSubmit={handleFormSubmit} />
           {showLoading && (
             <Spinner animation="border" role="status">
               <span className="sr-only">Loading...</span>
