@@ -4,8 +4,8 @@
 const tf = require('@tensorflow/tfjs');
     //require('@tensorflow/tfjs-node');
     //load iris training and testing data
-    const iris = require('../../iris.json');
-    const irisTesting = require('../../iris-testing.json');
+    const iris = require('../../../iris.json');
+    const irisTesting = require('../../../iris-testing.json');
     var lossValue;
     //
 exports.trainAndPredict = function (req, res) {
