@@ -74,7 +74,7 @@ exports.trainAndPredict = function (req, res) {
         //train the model
         await model.fit(trainingData, outputData,         
             {
-                epochs: 100,
+                epochs: 5, //Change later 
                 callbacks: { //list of callbacks to be called during training
                     onEpochEnd: async (epoch, log) => {
                         lossValue = log.loss;

@@ -116,6 +116,12 @@ function App() {
             </tbody>
           </table>
 
+       
+       
+         
+
+         
+
           {/* Table for Species Values */}
           <h2>Definition of Values for Species</h2>
           <table className="App-table">
@@ -125,6 +131,7 @@ function App() {
                 <th className="App-th">Values</th>
               </tr>
             </thead>
+
 
             <tbody>
               <tr>
@@ -141,7 +148,25 @@ function App() {
               </tr>
             </tbody>
           </table>
-        </div>
+        
+
+ <tbody>
+         <h2>test</h2>
+          <table className="App-table">
+            <thead>
+              <tr>
+                <th className="App-th">RT</th>
+                <th className="App-th">test</th>
+              </tr>
+            </thead>
+            </table>
+
+
+          </tbody>
+
+</div>
+
+
       ) : (
         <div>
           {showLoading && (
