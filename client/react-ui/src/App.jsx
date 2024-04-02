@@ -68,9 +68,14 @@ function App() {
 /////////////////////////////////////////////////////////////////////////
 
   return (
+
+
+//////////////////////////
+
     <div>
       {showLoading === false ? (
         <div>
+
            <DataEntryForm onFormSubmit={handleFormSubmit} />
           {showLoading && (
             <Spinner animation="border" role="status">
@@ -121,22 +126,26 @@ function App() {
             </tbody>
           </table>
 
-       
-       
-         
 
-         
+          <NewDataEntryForm onFormSubmit={handleFormSubmit} />
+           {showLoading && (
+         <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+         </Spinner>
+         )}
+
 
           {/* Table for Species Values */}
           <h2>Definition of Values for Species</h2>
           <table className="App-table">
             <thead>
+
               <tr>
                 <th className="App-th">Species</th>
                 <th className="App-th">Values</th>
+                
               </tr>
             </thead>
-
 
             <tbody>
               <tr>
@@ -150,51 +159,53 @@ function App() {
               <tr>
                 <td className="App-td">versicolor</td>
                 <td className="App-td">0, 0, 1</td>
+
+
               </tr>
+
+
             </tbody>
-          </table>
-        
 
- <tbody>
-         <h2>Enter Data with Epoch and Learning Rate features!</h2>
-          <table className="App-table">
-            <thead>
-              <tr>
-                <th className="App-th">RT</th>
-                <th className="App-th">test</th>
-              </tr>
-            </thead>
-            </table>
+            
 
+</table>
+            
+</div>
 
-          </tbody>
+) : (
+  <div>
+    {showLoading && (
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Waiting for results...</span>
+      </Spinner>
 
 
 
+    )}
+  </div>
+)}
+
+
+<tbody>
+<h2>Results after epoch and learning rate adjustments</h2>
+
+<table className="App-table">
+<thead>
+ <tr>
+   <th className="App-th">RT</th>
+   <th className="App-th">test</th>
+ </tr>
+</thead>
+</table>
+
+
+</tbody>
 
 </div>
 
 
-      ) : (
-        <div>
-          {showLoading && (
-            <Spinner animation="border" role="status">
-              <span className="sr-only">Waiting for results...</span>
-            </Spinner>
 
-
-
-          )}
-        </div>
-      )}
-    </div>
-  );
-
-
-
-
-
-}
+)}
 
 export default App;
 

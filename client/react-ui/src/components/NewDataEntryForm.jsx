@@ -34,7 +34,7 @@ function NewDataEntryForm({ onFormSubmit }) {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <h2>Enter Data</h2>
+      <h2>Enter Data, epoch and learning rate</h2>
       <div>
         <label>
           Sepal Length:
