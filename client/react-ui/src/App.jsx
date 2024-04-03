@@ -79,7 +79,7 @@ function App() {
       {showLoading === false ? (
         <div>
 
-           <DataEntryForm onFormSubmit={handleFormSubmit} />
+           <DataEntryForm onFormSubmit={handleFormSubmit} />  {/* can remove this since we already have a NewDataEntryForm component below and it works fine.*/}
           {showLoading && (
             <Spinner animation="border" role="status">
               <span className="sr-only">Loading...</span>
