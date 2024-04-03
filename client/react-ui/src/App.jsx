@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import './App.css';
-import DataEntryForm from './components/DataEntryForm';
+//import DataEntryForm from './components/DataEntryForm';
 import NewDataEntryForm from './components/NewDataEntryForm';
 import DisplayResults from './components/DisplayResults';
 
 function App() {
-
-
   
   const [data, setData] = useState({});
 
@@ -79,11 +77,11 @@ function App() {
       {showLoading === false ? (
         <div>
 
-           <DataEntryForm onFormSubmit={handleFormSubmit} />  {/* can remove this since we already have a NewDataEntryForm component below and it works fine.*/}
-          {showLoading && (
-            <Spinner animation="border" role="status">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
+          <NewDataEntryForm onFormSubmit={handleFormSubmit} />
+           {showLoading && (
+         <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+         </Spinner>
           )}
 
           <h1>Prediction Results</h1>
@@ -130,22 +128,17 @@ function App() {
           </table>
           
 
-          <NewDataEntryForm onFormSubmit={handleFormSubmit} />
-           {showLoading && (
-         <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-         </Spinner>
-         )}
+          
 
 
 
-{/* 
+
 <DisplayResults onFormSubmit={handleFormSubmit} />
            {showLoading && (
          <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
          </Spinner>
-         )} */}
+         )}
 
 
             
