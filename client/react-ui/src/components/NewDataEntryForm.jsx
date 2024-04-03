@@ -63,14 +63,14 @@ function NewDataEntryForm({ onFormSubmit }) {
      <div>
         <label>
             Epoch's         : 
-            <input type="number" name="epoch" value={formData.epoch} placeholder="Enter many epochs you want" onchange={handleChange}/>
+            <input type="number" name="epoch" value={formData.epoch} placeholder="Enter many epochs you want" onChange={handleChange}/>
         </label>
     </div>
 
     <div>
         <label>
             Learning Rate: 
-            <input type="number" name="learningrate" value={formData.learningrate} placeholder="Enter the learning rate" onchange={handleChange}/>
+            <input type="number" name="learningrate" value={formData.learningrate} placeholder="Enter the learning rate" onChange={handleChange}/>
         </label>
     </div>
 
