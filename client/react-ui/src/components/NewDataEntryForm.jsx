@@ -59,10 +59,10 @@ function NewDataEntryForm({ onFormSubmit }) {
           <input type="text" name="petal_width" value={formData.petal_width} onChange={handleChange} />
         </label>
      </div>
-
+{/* Epoch and learning rate input type has to be fixed later */}
      <div>
         <label>
-            Epoch's: 
+            Epoch's         : 
             <input type="number" name="epoch" value={formData.epoch} placeholder="Enter many epochs you want" onchange={handleChange}/>
         </label>
     </div>

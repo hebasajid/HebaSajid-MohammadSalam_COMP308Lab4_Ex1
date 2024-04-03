@@ -4,11 +4,14 @@ import Spinner from 'react-bootstrap/Spinner';
 import './App.css';
 import DataEntryForm from './components/DataEntryForm';
 import NewDataEntryForm from './components/NewDataEntryForm';
-
-
+import DisplayResults from './components/DisplayResults';
 
 function App() {
+
+
+  
   const [data, setData] = useState({});
+
   const [showLoading, setShowLoading] = useState(true);
 
   const [predictionResults, setPredictionResults] = useState(null);
@@ -125,7 +128,7 @@ function App() {
               </tr>
             </tbody>
           </table>
-
+          
 
           <NewDataEntryForm onFormSubmit={handleFormSubmit} />
            {showLoading && (
@@ -133,6 +136,39 @@ function App() {
           <span className="sr-only">Loading...</span>
          </Spinner>
          )}
+
+
+
+{/* 
+<DisplayResults onFormSubmit={handleFormSubmit} />
+           {showLoading && (
+         <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+         </Spinner>
+         )} */}
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
 
 
           {/* Table for Species Values */}
@@ -199,9 +235,13 @@ function App() {
 </table>
 
 
+
+
 </tbody>
 
 </div>
+
+
 
 
 
