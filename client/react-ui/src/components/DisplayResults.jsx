@@ -29,17 +29,6 @@ function DisplayResults() {
     fetchnewdata();
   }, []);
 
-  // const handleSubmit = async (formnewdata) => {
-  //   try {
-  //     setShowLoading(true);
-  //     const result = await axios.post('/api/run', { params: formnewdata });
-  //     setnewdata(result.newdata);
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   } finally {
-  //     setShowLoading(false);
-  //   }
-  // };
 
  
 
@@ -69,13 +58,6 @@ function DisplayResults() {
         <div>
 
 
-
-
-
-
-
-
-
           <h1>Prediction Results After Epoch & Learning rate</h1>
 
           {/* Table for Test Results */}
@@ -87,7 +69,7 @@ function DisplayResults() {
                 <th className="DisplayResults-th">Test 3</th>
                 <th className="DisplayResults-th">Species</th> {/* New Column */}
                 <th className="DisplayResults-th">Epoch's</th>
-                <th className="DisplayResults-th">Learning rate</th>
+                <th className="DisplayResults-th">Learning Rate</th>
                 
 
               </tr>
@@ -111,6 +93,7 @@ function DisplayResults() {
                   ))}
                 </td>
                 <td className="DisplayResults-td">
+                  <p><h1>Species after learning rate and epoch's entered</h1></p>
                   {newdata.row1 && newdata.row2 && newdata.row3 && (
                     <div>
                       <p>{determineNewSpecies([newdata.row1[0], newdata.row2[0], newdata.row3[0]])}</p>
