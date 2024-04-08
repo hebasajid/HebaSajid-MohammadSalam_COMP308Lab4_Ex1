@@ -19,12 +19,14 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setShowLoading(true);
         const result = await axios.get(apiUrl);
         console.log('result.data:', result.data);
         setData(result.data);
         setShowLoading(false);
       } catch (error) {
         console.log('error in fetchData:', error);
+        setShowLoading(false);
       }
     };
 
@@ -45,10 +47,13 @@ function App() {
 
   const handleFormSubmit = async (formData) => {
     try {
+      setShowLoading(true);
       const response = await axios.post('/api/run', formData);
       setPredictionResults(response.data);
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setShowLoading(false);
     }
   };
 
@@ -126,43 +131,16 @@ function App() {
               </tr>
             </tbody>
           </table>
-          
 
           
-
-
-
-
-<DisplayResults onFormSubmit={handleFormSubmit} />
-           {showLoading && (
-         <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-         </Spinner>
-         )}
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         
-
-
-
+            {/* <DisplayResults onFormSubmit={handleFormSubmit} />
+            {showLoading && (
+          <Spinner animation="border" role="status">
+           <span className="sr-only">Loading...</span>
+          </Spinner>
+          )} */}
+ 
+          {predictionResults && <DisplayResults data={predictionResults} />}
 
           {/* Table for Species Values */}
           <h2>Definition of Values for Species</h2>

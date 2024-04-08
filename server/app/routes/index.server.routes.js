@@ -20,8 +20,8 @@ module.exports = function (app) {
     app.get('/run', index.trainAndPredict);
 
     // POST route for handling form submission and prediction
-     app.post('/run', index.trainAndPredict); // You need to define this function in your controller
-
+     app.post('/run', index.trainAndPredict); 
+     
     // Return the router
     return router;
 };
